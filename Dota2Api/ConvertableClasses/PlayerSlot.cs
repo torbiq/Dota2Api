@@ -4,9 +4,19 @@ using Dota2Api.Extensions;
 using Dota2Api.Enums;
 
 namespace Dota2Api.ConvertableClasses {
+    /// <summary>
+    /// Player slot info (position in scoretab and side).
+    /// </summary>
     public class PlayerSlot {
-        public Side side { get; private set; }
+        /// <summary>
+        /// Team (usually false if Radiant and true if Dire, but here - 0 for Radiant and 1 for Dire).
+        /// </summary>
+        public Team side { get; private set; }
+        /// <summary>
+        /// The position of a player within their team (0-4).
+        /// </summary>
         public PlayerTabPosition position { get; private set; }
+
         public PlayerSlot(string parsedSByte) {
             // A player's slot is returned via an 8-bit unsigned integer.
             // The first bit represent the player's team, false if Radia-
@@ -20,7 +30,7 @@ namespace Dota2Api.ConvertableClasses {
 
             byte bytePlayerSlot = Byte.Parse(parsedSByte);
 
-            this.side = bytePlayerSlot.GetBit(7) == true ? Side.Dire : Side.Radiant;
+            this.side = bytePlayerSlot.GetBit(7) == true ? Team.Dire : Team.Radiant;
 
             BitArray bitArray = new BitArray(3);
             bitArray.Set(0, bytePlayerSlot.GetBit(0));

@@ -6,16 +6,6 @@ using System.Threading.Tasks;
 
 namespace Dota2Api.Extensions {
     public static class BitExtensions {
-        //public static byte GetBits(byte value) {
-        //    return (byte)((value & 0x70) >> 4);
-        //}
-
-        //public static int GetIntFromBits(this byte b, int[] indexes) {
-        //    int returnedInt = 0;
-        //    Bit
-        //    return returnedInt;
-        //}
-
         public static bool GetBit(this byte b, int bitNumber) {
             return (b & (1 << bitNumber)) != 0;
         }

@@ -1,5 +1,5 @@
 ﻿namespace Dota2Api.Enums {
-    public enum Side {
+    public enum Team {
         Radiant = 0,
         Dire = 1,
     }

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota2Api.Enums {
-    public enum Ability {
+﻿namespace Dota2Api.Enums {
+    public enum AbilityID {
         centaur_khan_war_stomp = 5295,
         necronomicon_warrior_last_will = 5200,
         enigma_demonic_conversion = 5147,

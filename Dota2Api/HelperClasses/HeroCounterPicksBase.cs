@@ -7,25 +7,25 @@ using Dota2Api.Enums;
 
 namespace Dota2Api.HelperClasses {
     public class HeroPick {
-        public Character character { get; private set; }
-        public Character[] bestAgainst { get; private set; }
-        public Character[] badAgainst { get; private set; }
-        public Item[] bestItems { get; private set; }
-        public Item[] counterItems { get; private set; }
-        public Ability[] counterAbilities { get; private set; }
-        public Ability[] bestAgainstAbilities { get; private set; }
-        public Ability[] friendAbilities { get; private set; }
-        public Character[] bestFirends { get; private set; }
+        public HeroID character { get; private set; }
+        public HeroID[] bestAgainst { get; private set; }
+        public HeroID[] badAgainst { get; private set; }
+        public ItemID[] bestItems { get; private set; }
+        public ItemID[] counterItems { get; private set; }
+        public AbilityID[] counterAbilities { get; private set; }
+        public AbilityID[] bestAgainstAbilities { get; private set; }
+        public AbilityID[] friendAbilities { get; private set; }
+        public HeroID[] bestFirends { get; private set; }
 
-        public HeroPick(Character character, 
-            Character[] bestAgainst,
-            Character[] badAgainst,
-            Item[] bestItems,
-            Item[] counterItems,
-            Ability[] counterAbilities,
-            Ability[] bestAgainstAbilities,
-            Ability[] friendAbilities,
-            Character[] bestFirends) {
+        public HeroPick(HeroID character, 
+            HeroID[] bestAgainst,
+            HeroID[] badAgainst,
+            ItemID[] bestItems,
+            ItemID[] counterItems,
+            AbilityID[] counterAbilities,
+            AbilityID[] bestAgainstAbilities,
+            AbilityID[] friendAbilities,
+            HeroID[] bestFirends) {
             this.character = character;
             this.bestAgainst = bestAgainst;
             this.badAgainst = badAgainst;

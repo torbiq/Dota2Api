@@ -1,5 +1,5 @@
 ﻿namespace Dota2Api.Enums {
-    public enum Item {
+    public enum ItemID {
         item_empty = 0,
         item_blink = 1,
         item_blades_of_attack = 2,

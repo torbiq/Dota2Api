@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Threading;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net;
-using Dota2Api.HelperClasses;
-using Dota2Api.Enums;
 using Dota2Api.ConvertableClasses;
-using Dota2Api.Extensions;
 
 namespace Dota2Api {
     class Program {
@@ -523,16 +516,16 @@ namespace Dota2Api {
             var br1 = new BarracksStatus("3");
             var br2 = new BarracksStatus("63");
             Console.WriteLine(ps.position + " " + ps.side);
-            foreach (var tower in ts.towerStatuses) {
+            foreach (var tower in ts.list) {
                 Console.WriteLine(tower.Key + " " + tower.Value);
             }
-            foreach (var tower in ts1.towerStatuses) {
+            foreach (var tower in ts1.list) {
                 Console.WriteLine(tower.Key + " " + tower.Value);
             }
-            foreach (var barrack in br1.barrackStatuses) {
+            foreach (var barrack in br1.list) {
                 Console.WriteLine(barrack.Key + " " + barrack.Value);
             }
-            foreach (var barrack in br2.barrackStatuses) {
+            foreach (var barrack in br2.list) {
                 Console.WriteLine(barrack.Key + " " + barrack.Value);
             }
             Console.ReadKey();

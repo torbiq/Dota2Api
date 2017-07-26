@@ -5,8 +5,14 @@ using System.Collections.Generic;
 using Dota2Api.Extensions;
 
 namespace Dota2Api.ConvertableClasses {
+    /// <summary>
+    /// Tower status list (destroyed or not).
+    /// </summary>
     public class TowerStatus {
-        public Dictionary<Tower, bool> towerStatuses { get; private set; }
+        /// <summary>
+        /// List of tower statuses.
+        /// </summary>
+        public Dictionary<Tower, bool> list { get; private set; }
         
         public TowerStatus(string parsedUint16) {
             // A particular teams tower status is given as a 16 - bit unsigned integer.
@@ -29,18 +35,18 @@ namespace Dota2Api.ConvertableClasses {
 
             ushort receivedTowers = ushort.Parse(parsedUint16);
 
-            this.towerStatuses = new Dictionary<Tower, bool>();
-            towerStatuses.Add(Tower.Ancient_Bottom, receivedTowers.GetBit(10));
-            towerStatuses.Add(Tower.Ancient_Top, receivedTowers.GetBit(9));
-            towerStatuses.Add(Tower.Bottom_Tier_3, receivedTowers.GetBit(8));
-            towerStatuses.Add(Tower.Bottom_Tier_2, receivedTowers.GetBit(7));
-            towerStatuses.Add(Tower.Bottom_Tier_1, receivedTowers.GetBit(6));
-            towerStatuses.Add(Tower.Middle_Tier_3, receivedTowers.GetBit(5));
-            towerStatuses.Add(Tower.Middle_Tier_2, receivedTowers.GetBit(4));
-            towerStatuses.Add(Tower.Middle_Tier_1, receivedTowers.GetBit(3));
-            towerStatuses.Add(Tower.Top_Tier_3, receivedTowers.GetBit(2));
-            towerStatuses.Add(Tower.Top_Tier_2, receivedTowers.GetBit(1));
-            towerStatuses.Add(Tower.Top_Tier_1, receivedTowers.GetBit(0));
+            this.list = new Dictionary<Tower, bool>();
+            list.Add(Tower.Ancient_Bottom, receivedTowers.GetBit(10));
+            list.Add(Tower.Ancient_Top, receivedTowers.GetBit(9));
+            list.Add(Tower.Bottom_Tier_3, receivedTowers.GetBit(8));
+            list.Add(Tower.Bottom_Tier_2, receivedTowers.GetBit(7));
+            list.Add(Tower.Bottom_Tier_1, receivedTowers.GetBit(6));
+            list.Add(Tower.Middle_Tier_3, receivedTowers.GetBit(5));
+            list.Add(Tower.Middle_Tier_2, receivedTowers.GetBit(4));
+            list.Add(Tower.Middle_Tier_1, receivedTowers.GetBit(3));
+            list.Add(Tower.Top_Tier_3, receivedTowers.GetBit(2));
+            list.Add(Tower.Top_Tier_2, receivedTowers.GetBit(1));
+            list.Add(Tower.Top_Tier_1, receivedTowers.GetBit(0));
         }
     }
 }

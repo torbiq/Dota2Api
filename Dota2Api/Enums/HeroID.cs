@@ -1,5 +1,5 @@
 ﻿namespace Dota2Api.Enums {
-    public enum Character {
+    public enum HeroID {
         antimage = 1,
         axe = 2,
         bane = 3,
