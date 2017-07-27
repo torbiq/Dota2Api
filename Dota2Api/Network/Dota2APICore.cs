@@ -3,6 +3,8 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Dota2API.Convertable;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Dota2API.Network {
     public static class Dota2API {
@@ -12,9 +14,10 @@ namespace Dota2API.Network {
         public static string getMatchDetailsURL = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/";
         public static string getMatchHistoryURL = "https://api.steampowered.com/IDOTA2Match_205790/GetMatchHistory/v001/";
 
-        public static Result GetMatchDetails(UInt64 match_id, string KEY) {
+        public static MatchHistoryResult GetMatchDetails(UInt64 match_id, string KEY) {
             string resultJSON = GetStringAsync(getMatchDetailsURL + "?match_id=" + match_id.ToString() + "&" + "key=" + KEY).Result;
-            RootObject result = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<RootObject>(resultJSON);
+            
+            RootObject<MatchHistoryResult> result = JsonConvert.DeserializeObject<RootObject<MatchHistoryResult>>(resultJSON);
             Console.WriteLine(result.result.duration);
             return result.result;
         }

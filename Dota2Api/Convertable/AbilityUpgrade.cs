@@ -1,7 +1,15 @@
-﻿namespace Dota2API.Convertable {
+﻿using Dota2API.Enums;
+using Newtonsoft.Json;
+
+namespace Dota2API.Convertable {
     public class AbilityUpgrade {
-        public int ability { get; set; }
+        [JsonProperty(PropertyName = "ability")]
+        public AbilityID ability { get; set; }
+
+        [JsonProperty(PropertyName = "time")]
         public int time { get; set; }
-        public int level { get; set; }
+
+        [JsonProperty(PropertyName = "level")]
+        public Level level { get; set; }
     }
 }

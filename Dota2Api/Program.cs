@@ -509,7 +509,8 @@ namespace Dota2API {
 
         [STAThread]
         private static void Main(string[] args) {
-            //Dota2API.Convertable.Result result = Dota2API.Network.Dota2API.GetMatchDetails(3334132106);
+            //Result result = Dota2API.Network.Dota2API.GetMatchDetails(3334132106, KEY);
+
             //Console.WriteLine(result.players[0].item_0);
             //Console.WriteLine(result.players[0].item_1);
             //Console.WriteLine(result.players[0].item_2);
@@ -517,12 +518,22 @@ namespace Dota2API {
             //Console.WriteLine(result.players[0].item_4);
             //Console.WriteLine(result.players[0].item_5);
 
+            //Console.ReadKey();
             var request = new MatchHistoryRequest();
-            request.gameMode = Enums.GameMode.AllPick;
-            request.heroID = Enums.HeroID.abaddon;
             request.key = KEY;
-            Console.WriteLine(Dota2API.Network.Dota2API.GetMatchHistory(request));
+            request.heroID = Enums.HeroID.arc_warden;
 
+            var result = Dota2API.Network.Dota2API.GetMatchDetails(3338812801, KEY);
+            Console.WriteLine(result.radiantWin);
+            Console.WriteLine(result.radiantScore);
+            Console.WriteLine(result.preGameDuration);
+            Console.WriteLine(result.gameMode);
+            Console.WriteLine(result.leagueID);
+            Console.WriteLine(result.engine);
+            Console.WriteLine(result.cluster);
+            Console.WriteLine(result.flags);
+            Console.WriteLine(result.startTime);
+            Console.WriteLine("taken");
             Console.ReadKey();
         }
 
