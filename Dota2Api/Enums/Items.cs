@@ -1,4 +1,4 @@
-﻿namespace Dota2Api.Enums {
+﻿namespace Dota2API.Enums {
     public enum ItemID {
         item_empty = 0,
         item_blink = 1,

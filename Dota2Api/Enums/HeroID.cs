@@ -1,4 +1,4 @@
-﻿namespace Dota2Api.Enums {
+﻿namespace Dota2API.Enums {
     public enum HeroID {
         antimage = 1,
         axe = 2,

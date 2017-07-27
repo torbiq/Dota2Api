@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dota2Api.Enums
-{
-    public enum PickOrder
-    {
+namespace Dota2API.Enums {
+    public enum PickOrder {
         _0 = 0,
         _1 = 1,
         _2 = 2,

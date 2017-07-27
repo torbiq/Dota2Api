@@ -1,4 +1,4 @@
-﻿namespace Dota2Api.Enums {
+﻿namespace Dota2API.Enums {
     public enum Tower {
         Ancient_Bottom,
         Ancient_Top,

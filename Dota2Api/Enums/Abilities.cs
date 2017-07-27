@@ -1,4 +1,4 @@
-﻿namespace Dota2Api.Enums {
+﻿namespace Dota2API.Enums {
     public enum AbilityID {
         centaur_khan_war_stomp = 5295,
         necronomicon_warrior_last_will = 5200,

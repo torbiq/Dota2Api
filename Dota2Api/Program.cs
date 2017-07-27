@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net;
-using Dota2Api.ConvertableClasses;
+using Dota2API.Convertable;
 
-namespace Dota2Api {
+namespace Dota2API {
     class Program {
 
         //public static Dictionary<Character, HeroPick> counterPicks = new Dictionary<Character, HeroPick> {
@@ -205,13 +206,13 @@ namespace Dota2Api {
         //            Item.item_skadi,
         //        },
         //        new Item[] {
-                    
+
         //        },
         //        new Ability[] {
-                    
+
         //        },
         //        new Ability[] {
-                    
+
         //        },
         //        new Ability[] {
         //            Ability.dark_seer_vacuum,
@@ -504,54 +505,26 @@ namespace Dota2Api {
         //    }
         //    return returnedCharacters.ToArray();
         //}
+        public const string KEY = "8BFC2C10E3D1E95B85DCF6AAD861782D";
 
+        [STAThread]
         private static void Main(string[] args) {
-            const string KEY = "8BFC2C10E3D1E95B85DCF6AAD861782D";
-            //string content = GetStringAsync("https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?match_id=3323746296&key=" + KEY).Result;
-            //Console.Write(content);
+            //Dota2API.Convertable.Result result = Dota2API.Network.Dota2API.GetMatchDetails(3334132106);
+            //Console.WriteLine(result.players[0].item_0);
+            //Console.WriteLine(result.players[0].item_1);
+            //Console.WriteLine(result.players[0].item_2);
+            //Console.WriteLine(result.players[0].item_3);
+            //Console.WriteLine(result.players[0].item_4);
+            //Console.WriteLine(result.players[0].item_5);
 
-            var ps = new PlayerSlot("128");
-            var ts = new TowerStatus("2046");
-            var ts1 = new TowerStatus("4");
-            var br1 = new BarracksStatus("3");
-            var br2 = new BarracksStatus("63");
-            Console.WriteLine(ps.position + " " + ps.side);
-            foreach (var tower in ts.list) {
-                Console.WriteLine(tower.Key + " " + tower.Value);
-            }
-            foreach (var tower in ts1.list) {
-                Console.WriteLine(tower.Key + " " + tower.Value);
-            }
-            foreach (var barrack in br1.list) {
-                Console.WriteLine(barrack.Key + " " + barrack.Value);
-            }
-            foreach (var barrack in br2.list) {
-                Console.WriteLine(barrack.Key + " " + barrack.Value);
-            }
+            var request = new MatchHistoryRequest();
+            request.gameMode = Enums.GameMode.AllPick;
+            request.heroID = Enums.HeroID.abaddon;
+            request.key = KEY;
+            Console.WriteLine(Dota2API.Network.Dota2API.GetMatchHistory(request));
+
             Console.ReadKey();
         }
 
-        private static async Task<string> GetStringAsync(string address) {
-            try {
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, address);
-                request.Method = HttpMethod.Get;
-                HttpClient client = new HttpClient();
-                var response = await client.SendAsync(request);
-
-                if (response.StatusCode == HttpStatusCode.Forbidden) {
-                    throw new System.Exception("Api-Key most likely wrong");
-                }
-                else if (response.StatusCode == HttpStatusCode.ServiceUnavailable) {
-                    throw new System.Exception("Server is busy or api-call limit exceeded. Please wait 30 seconds and try again. Call only ~1 request/second.");
-                }
-
-                string content = await response.Content.ReadAsStringAsync();
-
-                return content;
-            }
-            catch (Exception) {
-                throw;
-            }
-        }
     }
 }

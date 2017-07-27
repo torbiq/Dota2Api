@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dota2Api.Enums
-{
+namespace Dota2API.Enums {
     public enum LobbyType {
         Invalid = -1,
         PublicMatchmaking = 0,

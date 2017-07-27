@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dota2Api.Extensions {
+namespace Dota2API.Extensions {
     public static class BitExtensions {
         public static bool GetBit(this byte b, int bitNumber) {
             return (b & (1 << bitNumber)) != 0;

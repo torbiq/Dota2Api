@@ -1,8 +1,81 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA670CCE-49B3-407B-B005-E711ED98175C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <RootNamespace>Dota2Api</RootNamespace>
+    <AssemblyName>Dota2Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
-
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Convertable\AbilityUpgrade.cs" />
+    <Compile Include="Convertable\AdditionalUnit.cs" />
+    <Compile Include="Convertable\MatchHistoryRequest.cs" />
+    <Compile Include="Convertable\Player.cs" />
+    <Compile Include="Convertable\Result.cs" />
+    <Compile Include="Convertable\RootObject.cs" />
+    <Compile Include="Enums\Abilities.cs" />
+    <Compile Include="Enums\Barrack.cs" />
+    <Compile Include="Enums\Engine.cs" />
+    <Compile Include="Enums\GameMode.cs" />
+    <Compile Include="Enums\HeroID.cs" />
+    <Compile Include="Enums\Items.cs" />
+    <Compile Include="Enums\LeaverStatus.cs" />
+    <Compile Include="Enums\Level.cs" />
+    <Compile Include="Enums\LobbyType.cs" />
+    <Compile Include="Enums\PickOrder.cs" />
+    <Compile Include="Enums\PickStatus.cs" />
+    <Compile Include="Enums\PlayerTabPosition.cs" />
+    <Compile Include="Enums\Side.cs" />
+    <Compile Include="Enums\Skill.cs" />
+    <Compile Include="Enums\Tower.cs" />
+    <Compile Include="Extensions\BitExtensions.cs" />
+    <Compile Include="Network\Dota2APICore.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HelperClasses\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

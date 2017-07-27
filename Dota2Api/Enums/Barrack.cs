@@ -1,4 +1,4 @@
-﻿namespace Dota2Api.Enums {
+﻿namespace Dota2API.Enums {
     public enum Barrack {
         Bottom_Ranged,
         Bottom_Melee,

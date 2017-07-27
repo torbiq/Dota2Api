@@ -1,7 +1,5 @@
-﻿namespace Dota2Api.Enums
-{
-    public enum Level
-    {
+﻿namespace Dota2API.Enums {
+    public enum Level {
         _1 = 1,
         _2 = 2,
         _3 = 3,

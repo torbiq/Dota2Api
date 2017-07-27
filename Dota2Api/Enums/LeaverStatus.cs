@@ -1,5 +1,4 @@
-﻿namespace Dota2Api.Enums
-{
+﻿namespace Dota2API.Enums {
     public enum LeaverStatus {
         NONE = 0,
         DISCONNECTED = 1,

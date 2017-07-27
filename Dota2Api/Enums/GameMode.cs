@@ -1,7 +1,5 @@
-﻿namespace Dota2Api.Enums
-{
-    public enum GameMode
-    {
+﻿namespace Dota2API.Enums {
+    public enum GameMode {
         None = 0,
         AllPick = 1,
         CaptainsMode = 2,
