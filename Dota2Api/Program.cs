@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Windows.Forms;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Net;
-using Dota2API.Convertable;
+using Dota2API.Network;
 
 namespace Dota2API {
     class Program {
@@ -509,31 +505,22 @@ namespace Dota2API {
 
         [STAThread]
         private static void Main(string[] args) {
-            //Result result = Dota2API.Network.Dota2API.GetMatchDetails(3334132106, KEY);
+            //var request = new MatchDetailsRequest();
+            //request.key = KEY;
+            //request.heroID = Enums.HeroID.arc_warden;
 
-            //Console.WriteLine(result.players[0].item_0);
-            //Console.WriteLine(result.players[0].item_1);
-            //Console.WriteLine(result.players[0].item_2);
-            //Console.WriteLine(result.players[0].item_3);
-            //Console.WriteLine(result.players[0].item_4);
-            //Console.WriteLine(result.players[0].item_5);
+            var items = API.GetGameItems(KEY, language: "English");
 
-            //Console.ReadKey();
-            var request = new MatchHistoryRequest();
-            request.key = KEY;
-            request.heroID = Enums.HeroID.arc_warden;
+            foreach (var item in items) {
+                Console.WriteLine(item.localizedName);
+            }
 
-            var result = Dota2API.Network.Dota2API.GetMatchDetails(3338812801, KEY);
-            Console.WriteLine(result.radiantWin);
-            Console.WriteLine(result.radiantScore);
-            Console.WriteLine(result.preGameDuration);
-            Console.WriteLine(result.gameMode);
-            Console.WriteLine(result.leagueID);
-            Console.WriteLine(result.engine);
-            Console.WriteLine(result.cluster);
-            Console.WriteLine(result.flags);
-            Console.WriteLine(result.startTime);
-            Console.WriteLine("taken");
+            //Thread.Sleep(1500);
+
+            //var match = Dota2API.Network.Dota2API.GetMatchDetails(KEY, result.matches[0].matchID);
+
+            //Console.WriteLine(match.matchID);
+
             Console.ReadKey();
         }
 

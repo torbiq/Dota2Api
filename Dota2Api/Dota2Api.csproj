@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EA670CCE-49B3-407B-B005-E711ED98175C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Dota2Api</RootNamespace>
-    <AssemblyName>Dota2Api</AssemblyName>
+    <RootNamespace>Dota2API</RootNamespace>
+    <AssemblyName>Dota2API</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,9 +50,16 @@
   <ItemGroup>
     <Compile Include="Convertable\AbilityUpgrade.cs" />
     <Compile Include="Convertable\AdditionalUnit.cs" />
-    <Compile Include="Convertable\MatchHistoryRequest.cs" />
+    <Compile Include="Convertable\GameItem.cs" />
+    <Compile Include="Convertable\GameItems.cs" />
+    <Compile Include="Convertable\Hero.cs" />
+    <Compile Include="Convertable\Heroes.cs" />
+    <Compile Include="Convertable\MatchHistory.cs" />
+    <Compile Include="Convertable\MatchHistoryBySequenceNum.cs" />
+    <Compile Include="Convertable\PickOrBan.cs" />
     <Compile Include="Convertable\Player.cs" />
-    <Compile Include="Convertable\Result.cs" />
+    <Compile Include="Convertable\MatchDetailsRequest.cs" />
+    <Compile Include="Convertable\MatchDetails.cs" />
     <Compile Include="Convertable\RootObject.cs" />
     <Compile Include="Enums\Abilities.cs" />
     <Compile Include="Enums\Barrack.cs" />
@@ -66,7 +73,7 @@
     <Compile Include="Enums\PickOrder.cs" />
     <Compile Include="Enums\PickStatus.cs" />
     <Compile Include="Enums\PlayerTabPosition.cs" />
-    <Compile Include="Enums\Side.cs" />
+    <Compile Include="Enums\Team.cs" />
     <Compile Include="Enums\Skill.cs" />
     <Compile Include="Enums\Tower.cs" />
     <Compile Include="Extensions\BitExtensions.cs" />

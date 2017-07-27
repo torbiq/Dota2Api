@@ -2,43 +2,52 @@
 using Dota2API.Enums;
 
 namespace Dota2API.Convertable {
-    public class MatchHistoryRequest : IFormattable {
+    public class MatchDetailsRequest : IFormattable {
         /// <summary>
         /// The ID of the hero that must be in the matches being queried.
         /// </summary>
         public HeroID? heroID { get; set; }
+
         /// <summary>
         /// Which game mode to return matches for.
         /// </summary>
         public GameMode? gameMode { get; set; }
+
         /// <summary>
         /// The average skill range of the match, these can be [1-3] with lower numbers being lower skill. Ignored if an account ID is specified.
         /// </summary>
         public Skill? skill { get; set; }
+
         /// <summary>
         /// Minimum number of human players that must be in a match for it to be returned.
         /// </summary>
         public int? minHumanPlayers { get; set; }
+
         /// <summary>
         /// An account ID to get matches from. This will fail if the user has their match history hidden.
         /// </summary>
         public Int64? accountID { get; set; }
+
         /// <summary>
         /// The league ID to return games from.
         /// </summary>
         public int? leagueID { get; set; }
+
         /// <summary>
         /// The minimum match ID to start from.
         /// </summary>
         public Int64? startAtMatchID { get; set; }
+
         /// <summary>
         /// The number of requested matches to return.
         /// </summary>
         public int? matchesRequested { get; set; }
+
         /// <summary>
         /// Whether or not tournament games should only be returned.
         /// </summary>
         public bool? tournament_games_only { get; set; }
+
         /// <summary>
         /// Key used to access info.
         /// </summary>
