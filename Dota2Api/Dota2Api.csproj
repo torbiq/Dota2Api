@@ -58,7 +58,7 @@
     <Compile Include="Convertable\MatchHistoryBySequenceNum.cs" />
     <Compile Include="Convertable\PickOrBan.cs" />
     <Compile Include="Convertable\Player.cs" />
-    <Compile Include="Convertable\MatchDetailsRequest.cs" />
+    <Compile Include="Convertable\MatchHistoryRequest.cs" />
     <Compile Include="Convertable\MatchDetails.cs" />
     <Compile Include="Convertable\RootObject.cs" />
     <Compile Include="Enums\Abilities.cs" />

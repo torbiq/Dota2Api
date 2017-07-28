@@ -24,7 +24,7 @@ namespace Dota2API.Convertable {
         /// The hero's unique ID. A list of hero IDs can be found via the GetHeroes method.
         /// </summary>
         [JsonProperty(PropertyName = "hero_id")]
-        public ItemID heroID { get; private set; }
+        public HeroID heroID { get; private set; }
 
         /// <summary>
         /// ID of the top-left inventory item.

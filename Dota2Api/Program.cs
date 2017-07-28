@@ -1,5 +1,8 @@
 ﻿using System;
 using Dota2API.Network;
+using Dota2API.Convertable;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace Dota2API {
     class Program {
@@ -509,7 +512,33 @@ namespace Dota2API {
             //request.key = KEY;
             //request.heroID = Enums.HeroID.arc_warden;
 
-            var items = API.GetGameItems(KEY, language: "English");
+            API.Initialize(KEY);
+
+            var heroes = API.GetHeroes("English");
+
+            List<MatchDetails> matchDetails = new List<MatchDetails>();
+
+            MatchHistoryRequest request = new MatchHistoryRequest();
+            request.key = KEY;
+            request.matchesRequested = 25;
+            Thread.Sleep(1100);
+            for (int i_heroes = 0; i_heroes < heroes.Count; i_heroes++) {
+                request.heroID = heroes[i_heroes].id;
+                for (int i_overall_matches = 0; i_overall_matches < 100; i_overall_matches++) {
+                    var matches = API.GetMatchHistory(request).matches;
+                    for (int i_match = 0; i_match < matches.Count; i_match++) {
+                        var match = matches[i_match];
+                        for (int i_player = 0; i_player < match.players.Count; i_player++) {
+                            Console.WriteLine(match.players[i_player].heroID);
+                        }
+                    }
+                    if (matches.Count > 0) {
+                        request.startAtMatchID = matches[matches.Count - 1].matchID - 1;
+                    }
+                    //Console.WriteLine(request.startAtMatchID);
+                    Thread.Sleep(1100);
+                }
+            }
 
             //foreach (var item in items) {
             //    if (item.id.ToString() != item.name) {

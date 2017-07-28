@@ -2,7 +2,7 @@
 using Dota2API.Enums;
 
 namespace Dota2API.Convertable {
-    public class MatchDetailsRequest : IFormattable {
+    public class MatchHistoryRequest : IFormattable {
         /// <summary>
         /// The ID of the hero that must be in the matches being queried.
         /// </summary>
@@ -21,7 +21,7 @@ namespace Dota2API.Convertable {
         /// <summary>
         /// Minimum number of human players that must be in a match for it to be returned.
         /// </summary>
-        public int? minHumanPlayers { get; set; }
+        public uint? minHumanPlayers { get; set; }
 
         /// <summary>
         /// An account ID to get matches from. This will fail if the user has their match history hidden.
@@ -31,17 +31,17 @@ namespace Dota2API.Convertable {
         /// <summary>
         /// The league ID to return games from.
         /// </summary>
-        public int? leagueID { get; set; }
+        public uint? leagueID { get; set; }
 
         /// <summary>
         /// The minimum match ID to start from.
         /// </summary>
-        public Int64? startAtMatchID { get; set; }
+        public UInt64? startAtMatchID { get; set; }
 
         /// <summary>
         /// The number of requested matches to return.
         /// </summary>
-        public int? matchesRequested { get; set; }
+        public uint? matchesRequested { get; set; }
 
         /// <summary>
         /// Whether or not tournament games should only be returned.
