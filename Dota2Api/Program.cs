@@ -509,8 +509,15 @@ namespace Dota2API {
             //request.key = KEY;
             //request.heroID = Enums.HeroID.arc_warden;
 
-            var heros = API.GetHeroes(KEY, language: "English");
-            
+            var items = API.GetGameItems(KEY, language: "English");
+
+            //foreach (var item in items) {
+            //    if (item.id.ToString() != item.name) {
+            //        Console.WriteLine(item.id + " " + item.name);
+            //    }
+            //}
+            //Console.WriteLine(items[15].recipe);
+
             //Thread.Sleep(1500);
 
             //var match = Dota2API.Network.Dota2API.GetMatchDetails(KEY, result.matches[0].matchID);
