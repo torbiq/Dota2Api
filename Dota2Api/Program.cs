@@ -4,6 +4,7 @@ using Dota2API.Convertable;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Dota2API.Enums;
 
 namespace Dota2API {
     class Program {
@@ -522,26 +523,25 @@ namespace Dota2API {
             MatchHistoryRequest request = new MatchHistoryRequest();
             request.key = KEY;
             request.matchesRequested = 100;
+            request.skill = Skill.VeryHigh;
+            request.gameMode = GameMode.RankedMatchmaking;
             for (int i_heroes = 0; i_heroes < heroes.Count; i_heroes++) {
                 request.heroID = heroes[i_heroes].id;
-                for (int i_overall_matches = 0; i_overall_matches < 100; i_overall_matches++) {
-                    for (int i = 0; i < 5; i++) {
-                        Thread.Sleep(1100);
-                        var matches = API.GetMatchHistory(request).matches;
-                        //for (int i_match = 0; i_match < matches.Count; i_match++) {
-                        //    var match = matches[i_match];
-                        //    //for (int i_player = 0; i_player < match.players.Count; i_player++) {
-                        //    //    //Console.WriteLine(match.players[i_player].heroID);
-                        //    //}
-                        //    //Console.Write("Size of that match " +  + " bytes.");
-                        //}
-                        if (matches.Count > 0) {
-                            request.startAtMatchID = matches[matches.Count - 1].matchID - 1;
-                            matchDetails.AddRange(matches);
-                            Console.WriteLine("Matches received count = " + matchDetails.Count);
-                        }
+                for (int i_overall_requests_per_character = 0; i_overall_requests_per_character < 5; i_overall_requests_per_character++) {
+                    Thread.Sleep(1100);
+                    var matches = API.GetMatchHistory(request).matches;
+                    //for (int i_match = 0; i_match < matches.Count; i_match++) {
+                    //    var match = matches[i_match];
+                    //    //for (int i_player = 0; i_player < match.players.Count; i_player++) {
+                    //    //    //Console.WriteLine(match.players[i_player].heroID);
+                    //    //}
+                    //    //Console.Write("Size of that match " +  + " bytes.");
+                    //}
+                    if (matches.Count > 0) {
+                        request.startAtMatchID = matches[matches.Count - 1].matchID - 1;
+                        matchDetails.AddRange(matches);
+                        Console.WriteLine("Matches received count = " + matchDetails.Count);
                     }
-                    Thread.Sleep(30000);
                 }
             }
 
