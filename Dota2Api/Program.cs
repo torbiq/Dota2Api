@@ -2,6 +2,7 @@
 using Dota2API.Network;
 using Dota2API.Convertable;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace Dota2API {
@@ -520,23 +521,27 @@ namespace Dota2API {
 
             MatchHistoryRequest request = new MatchHistoryRequest();
             request.key = KEY;
-            request.matchesRequested = 25;
-            Thread.Sleep(1100);
+            request.matchesRequested = 100;
             for (int i_heroes = 0; i_heroes < heroes.Count; i_heroes++) {
                 request.heroID = heroes[i_heroes].id;
                 for (int i_overall_matches = 0; i_overall_matches < 100; i_overall_matches++) {
-                    var matches = API.GetMatchHistory(request).matches;
-                    for (int i_match = 0; i_match < matches.Count; i_match++) {
-                        var match = matches[i_match];
-                        for (int i_player = 0; i_player < match.players.Count; i_player++) {
-                            Console.WriteLine(match.players[i_player].heroID);
+                    for (int i = 0; i < 5; i++) {
+                        Thread.Sleep(1100);
+                        var matches = API.GetMatchHistory(request).matches;
+                        //for (int i_match = 0; i_match < matches.Count; i_match++) {
+                        //    var match = matches[i_match];
+                        //    //for (int i_player = 0; i_player < match.players.Count; i_player++) {
+                        //    //    //Console.WriteLine(match.players[i_player].heroID);
+                        //    //}
+                        //    //Console.Write("Size of that match " +  + " bytes.");
+                        //}
+                        if (matches.Count > 0) {
+                            request.startAtMatchID = matches[matches.Count - 1].matchID - 1;
+                            matchDetails.AddRange(matches);
+                            Console.WriteLine("Matches received count = " + matchDetails.Count);
                         }
                     }
-                    if (matches.Count > 0) {
-                        request.startAtMatchID = matches[matches.Count - 1].matchID - 1;
-                    }
-                    //Console.WriteLine(request.startAtMatchID);
-                    Thread.Sleep(1100);
+                    Thread.Sleep(30000);
                 }
             }
 
@@ -546,7 +551,6 @@ namespace Dota2API {
             //    }
             //}
             //Console.WriteLine(items[15].recipe);
-
             //Thread.Sleep(1500);
 
             //var match = Dota2API.Network.Dota2API.GetMatchDetails(KEY, result.matches[0].matchID);
