@@ -54,6 +54,8 @@
     <Compile Include="Convertable\GameItems.cs" />
     <Compile Include="Convertable\Hero.cs" />
     <Compile Include="Convertable\Heroes.cs" />
+    <Compile Include="Convertable\League.cs" />
+    <Compile Include="Convertable\LeagueListing.cs" />
     <Compile Include="Convertable\MatchHistory.cs" />
     <Compile Include="Convertable\MatchHistoryBySequenceNum.cs" />
     <Compile Include="Convertable\PickOrBan.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Enums\GameMode.cs" />
     <Compile Include="Enums\HeroID.cs" />
     <Compile Include="Enums\Items.cs" />
+    <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\LeaverStatus.cs" />
     <Compile Include="Enums\Level.cs" />
     <Compile Include="Enums\LobbyType.cs" />
@@ -77,7 +80,7 @@
     <Compile Include="Enums\Skill.cs" />
     <Compile Include="Enums\Tower.cs" />
     <Compile Include="Extensions\BitExtensions.cs" />
-    <Compile Include="Network\Dota2APICore.cs" />
+    <Compile Include="Core\Dota2APICore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,8 +88,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HelperClasses\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

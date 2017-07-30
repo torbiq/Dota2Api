@@ -2,6 +2,9 @@
 using Newtonsoft.Json;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Data about pick or ban (available only for CM).
+    /// </summary>
     public class PickOrBan {
         /// <summary>
         /// Whether this entry is a pick (true) or a ban (false).

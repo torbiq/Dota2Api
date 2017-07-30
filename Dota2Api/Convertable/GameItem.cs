@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Dota2API.Convertable {
     /// <summary>
-    /// Represents in-game item structure.
+    /// Represents in-game item info structure.
     /// </summary>
     public class GameItem {
         /// <summary>

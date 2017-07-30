@@ -1,4 +1,7 @@
 ﻿namespace Dota2API.Enums {
+    /// <summary>
+    /// Tower position.
+    /// </summary>
     public enum Tower {
         Ancient_Bottom,
         Ancient_Top,

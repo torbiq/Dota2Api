@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Helper class for JSON parsing to list.
+    /// </summary>
     public class Heroes {
         /// <summary>
         /// List of heroes.
         /// </summary>
         [JsonProperty(PropertyName = "heroes")]
         public List<Hero> heroes;
-
-        ///// <summary>
-        ///// Number of results.
-        ///// </summary>
-        //[JsonProperty(PropertyName = "count")]
-        //public int count;
     }
 }

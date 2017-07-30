@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Dota2API.Convertable {
     /// <summary>
-    /// GetGameItems method helping class.
+    /// Helping class for JSON parsing.
     /// </summary>
     public class GameItems {
         /// <summary>

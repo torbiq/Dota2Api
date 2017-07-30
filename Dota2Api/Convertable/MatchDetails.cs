@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Match detailed info.
+    /// </summary>
     public class MatchDetails {
         /// <summary>
         /// List of players in the match.

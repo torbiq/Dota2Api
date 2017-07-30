@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Contains info about match history got by sequence num.
+    /// </summary>
     public class MatchHistoryBySequenceNum {
         public enum Status {
             Success = 0,

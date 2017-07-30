@@ -2,6 +2,9 @@
 using Newtonsoft.Json;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Player detailed info.
+    /// </summary>
     public class Player {
         /// <summary>
         /// 32-bit account ID.

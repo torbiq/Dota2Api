@@ -1,9 +1,9 @@
 ﻿namespace Dota2API.Enums {
     public enum PlayerTabPosition {
-        _0 = 0,
-        _1 = 1,
-        _2 = 2,
-        _3 = 3,
-        _4 = 4,
+        Position_0 = 0,
+        Position_1 = 1,
+        Position_2 = 2,
+        Position_3 = 3,
+        Position_4 = 4,
     }
 }

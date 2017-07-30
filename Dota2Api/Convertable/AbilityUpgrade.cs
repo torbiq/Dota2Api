@@ -2,6 +2,9 @@
 using Newtonsoft.Json;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Contains info about ability upgrade.
+    /// </summary>
     public class AbilityUpgrade {
         /// <summary>
         /// Ability ID.

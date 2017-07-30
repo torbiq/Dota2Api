@@ -2,7 +2,13 @@
 using Newtonsoft.Json;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Additional unit (e.g. lone druid's bear) info structure.
+    /// </summary>
     public class AdditionalUnit {
+        /// <summary>
+        /// Name of controlled unit.
+        /// </summary>
         [JsonProperty(PropertyName = "unitname")]
         public string unitname { get; set; }
 

@@ -2,6 +2,9 @@
 using Dota2API.Enums;
 
 namespace Dota2API.Convertable {
+    /// <summary>
+    /// Contains "filters" for getting match history.
+    /// </summary>
     public class MatchHistoryRequest : IFormattable {
         /// <summary>
         /// The ID of the hero that must be in the matches being queried.
@@ -47,12 +50,7 @@ namespace Dota2API.Convertable {
         /// Whether or not tournament games should only be returned.
         /// </summary>
         public bool? tournament_games_only { get; set; }
-
-        /// <summary>
-        /// Key used to access info.
-        /// </summary>
-        public string key;
-
+        
         public override string ToString() {
             string returnedString = "?";
             if (heroID != null) {
@@ -82,20 +80,20 @@ namespace Dota2API.Convertable {
             if (tournament_games_only != null) {
                 returnedString += AddParam("tournament_games_only=", tournament_games_only.ToString());
             }
-            if (key != null) {
-                returnedString += "key=" + key.ToString();
-            }
-            else {
-                throw new System.NullReferenceException("Key is not assigned");
-            }
             return returnedString;
         }
-        public string AddParam(string paramName, string value) {
-            return paramName + value + "&";
-        }
-        
+
         public string ToString(string format, IFormatProvider formatProvider) {
             return ToString();
+        }
+
+        /// <summary>
+        /// Helper method for adding parameters.
+        /// </summary>
+        /// <param name="paramName">request parameter name</param>
+        /// <param name="value">value assigned</param>
+        private string AddParam(string paramName, string value) {
+            return paramName + value + "&";
         }
     }
 }
