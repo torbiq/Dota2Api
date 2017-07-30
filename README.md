@@ -1,6 +1,6 @@
-# Dota 2 C# API
-
 ![Dota 2 Logo](/images/Logo_Dota_2.png)
+
+# Dota 2 C# API
 
 :heart::fire: Completed C# API wrapper for working with Dota 2 Web API :fire::heart:
 
