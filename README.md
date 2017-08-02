@@ -18,8 +18,8 @@ using Dota2Api.Core;
 using Dota2Api.Enums;
 using Dota2Api.Convertable;
 
-    var api = new DotaWebAPI(KEY);
-    var heroes = api.GetHeroes(Language.english);
+var api = new DotaWebAPI(KEY);
+var heroes = api.GetHeroes(Language.english);
 ```
 
 ## Supported WebAPI functions list with their signature
@@ -30,7 +30,6 @@ public List<Hero> GetHeroes(Language? language = null, bool itemizedOnly = false
 public List<GameItem> GetGameItems(Language? language = null);
 public List<League> GetLeagueListing(Language? language = null);
 public MatchHistoryBySequenceNum GetMatchHistoryBySequenceNum(UInt64? startAtMatchSeqNum = null, uint matchesRequested = 0);
-public MatchHistory GetMatchHistory(MatchHistoryRequest request);
 public MatchHistory GetMatchHistory(MatchHistoryRequest request);
 ```
 
